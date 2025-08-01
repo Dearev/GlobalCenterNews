@@ -16,28 +16,56 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // Sort by most recent
       posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
       posts.forEach((post) => {
-        const postEl = document.createElement("a");
-        postEl.href = post.file;
-        postEl.className = "post-link";
-        postEl.innerHTML = `
-          <h3>${post.title}</h3>
-          <p><strong>${post.author}</strong> &bull; ${post.date}</p>
-        `;
+        // Fetch article HTML to extract preview
+        fetch(post.file)
+          .then(res => res.text())
+          .then(html => {
+            // Create a temp DOM to parse
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, "text/html");
 
-        // Add to "Recent"
-        postSections.Recent.appendChild(postEl.cloneNode(true));
+            // Find first <p>
+            let preview = "No preview available.";
+            const firstP = doc.querySelector(".content p");
+            if (firstP) {
+              preview = firstP.textContent.trim();
+              if (preview.length > 200) {
+                preview = preview.substring(0, 197) + "...";
+              }
+            }
 
-        // Add to category
-        const category = categories.includes(post.category) ? post.category : "Other";
-        postSections[category].appendChild(postEl);
+            const postEl = document.createElement("a");
+            postEl.href = post.file;
+            postEl.className = "post-card";
+            postEl.innerHTML = `
+              <h3>${post.title}</h3>
+              <p class="meta"><strong>${post.author}</strong> &bull; ${post.date}</p>
+              <p class="preview">${preview}</p>
+            `;
+
+            // Add to Recent
+            postSections.Recent.appendChild(postEl.cloneNode(true));
+
+            // Add to categories
+            const categoryList = Array.isArray(post.category)
+              ? post.category
+              : [post.category];
+
+            categoryList.forEach((cat) => {
+              const validCat = categories.includes(cat) ? cat : "Other";
+              if (postSections[validCat]) {
+                postSections[validCat].appendChild(postEl.cloneNode(true));
+              }
+            });
+          });
       });
     })
     .catch((err) => {
       postSections.Recent.innerHTML = `<p>Error loading posts: ${err.message}</p>`;
     });
 });
+
 
