@@ -95,7 +95,13 @@
       const date = document.getElementById("date").value || new Date().toISOString().split('T')[0];
       const category = document.getElementById("category").value;
       const tags = document.getElementById("tags").value.split(",").map(tag => tag.trim()).filter(Boolean);
-      const content = document.getElementById("content").value.trim();
+      // Convert plain text to <p>...</p> HTML
+      const rawText = document.getElementById("content").value.trim();
+      const content = rawText
+         .split(/\n{2,}|\r{2,}/) // Split by double line breaks
+        .map(para => `<p>${para.replace(/\n/g, " ").trim()}</p>`)
+        .join("\n");
+
 
       const filename = "article-" + date.replace(/-/g, "") + "-" + title.toLowerCase().replace(/\s+/g, "-") + ".html";
 
