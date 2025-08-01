@@ -98,10 +98,8 @@
       const tags = document.getElementById("tags").value.split(",").map(tag => tag.trim()).filter(Boolean);
       // Convert plain text to <p>...</p> HTML
       const rawText = document.getElementById("content").value.trim();
-      const content = rawText
-         .split(/\n{2,}|\r{2,}/) // Split by double line breaks
-        .map(para => `<p>${para.replace(/\n/g, " ").trim()}</p>`)
-        .join("\n");
+      const content = marked.parse(rawText);
+
 
 
       const filename = "article-" + date.replace(/-/g, "") + "-" + title.toLowerCase().replace(/\s+/g, "-") + ".html";
