@@ -4,7 +4,12 @@
     "file": "posts/article1.html",
     "author": "Dearev | CEO",
     "date": "2025-07-31",
-    "category": ["Other"],
-    "tags": ["a"]
-  }
+    "category": "Other",
+    "tags": [
+      "welcome",
+      "announcement",
+      "launch",
+      "intro"
+         ]
+      }
 ]
