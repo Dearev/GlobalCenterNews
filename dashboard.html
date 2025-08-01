@@ -1,1 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create New Article | GlobalCenter News</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    form {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 10px;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.25rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    textarea {
+      height: 200px;
+    }
+    button {
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      background: #003366;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 2rem;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align:center;">📝 New Article Creator</h1>
+
+  <form id="article-form">
+    <label>Title</label>
+    <input type="text" id="title" required />
+
+    <label>Author</label>
+    <input type="text" id="author" required />
+
+    <label>Date</label>
+    <input type="date" id="date" />
+
+    <label>Category</label>
+    <select id="category">
+      <option>Politics</option>
+      <option>Economy</option>
+      <option>Opinion</option>
+      <option>Other</option>
+    </select>
+
+    <label>Tags (comma-separated)</label>
+    <input type="text" id="tags" />
+
+    <label>Article Content (HTML allowed)</label>
+    <textarea id="content" placeholder="<p>This is a paragraph...</p>"></textarea>
+
+    <button type="submit">Generate Article</button>
+  </form>
+
+  <h2 style="text-align:center;">🔧 Generated article.html</h2>
+  <pre id="output-html"></pre>
+
+  <h2 style="text-align:center;">🧩 posts.json entry</h2>
+  <pre id="output-json"></pre>
+
+  <script>
+    const form = document.getElementById("article-form");
+    const outputHtml = document.getElementById("output-html");
+    const outputJson = document.getElementById("output-json");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const title = document.getElementById("title").value.trim();
+      const author = document.getElementById("author").value.trim();
+      const date = document.getElementById("date").value || new Date().toISOString().split('T')[0];
+      const category = document.getElementById("category").value;
+      const tags = document.getElementById("tags").value.split(",").map(tag => tag.trim()).filter(Boolean);
+      const content = document.getElementById("content").value.trim();
+
+      const filename = "article-" + date.replace(/-/g, "") + "-" + title.toLowerCase().replace(/\s+/g, "-") + ".html";
+
+      // Generate HTML
+      const articleHTML = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>${title}</title>
+  <link rel="stylesheet" href="articles.css" />
+</head>
+<body>
+  <article class="news-article">
+    <a href="../index.html" class="back-link">← Back to Home</a>
+
+    <h1>${title}</h1>
+    <p class="meta">By <strong>${author}</strong> | ${date} | Category: <em>${category}</em></p>
+
+    <div class="tags">
+      ${tags.map(tag => `<span class="tag">${tag}</span>`).join(" ")}
+    </div>
+
+    <section class="content">
+      ${content}
+    </section>
+  </article>
+</body>
+</html>`;
+
+      outputHtml.textContent = articleHTML;
+
+      // Generate posts.json entry
+      const postEntry = {
+        "title": title,
+        "file": "posts/" + filename,
+        "author": author,
+        "date": date,
+        "category": category,
+        "tags": tags
+      };
+
+      outputJson.textContent = JSON.stringify(postEntry, null, 2);
+    });
+  </script>
+</body>
+</html>
 
