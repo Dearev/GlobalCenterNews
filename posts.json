@@ -1,10 +1,10 @@
-[
-   {
-    "title": "Welcome to GlobalCenter News",
-    "file": "posts/article1.html",
-    "author": "Admin",
-    "date": "2025-08-01",
-    "category": "Other"
-  }
-]
-
+{
+  "title": "GlobalCenter News",
+  "file": "posts/article1.html",
+  "author": "Dearev | CEO",
+  "date": "2025-07-31",
+  "category": "Other",
+  "tags": [
+    "a"
+  ]
+}
