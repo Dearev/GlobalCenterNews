@@ -10,21 +10,31 @@
       "announcement",
       "launch",
       "intro"
-         ]
-      }, 
-    
-    
+    ]
+  },
   {
-  "title": "Mezimori: Vernicia’s personal personality cult",
-  "file": "posts/article2.html",
-  "author": "GlobalCenter Journalists Network",
-  "date": "2025-08-01",
-  "category": "Economy",
-  "tags": [
-    "Economy",
-    "mezimori",
-    "cult",
-    "vernicia"
-  ]
+    "title": "Mezimori: Vernicia’s personal personality cult",
+    "file": "posts/article2.html",
+    "author": "GlobalCenter Journalists Network",
+    "date": "2025-08-01",
+    "category": "Economy",
+    "tags": [
+      "Economy",
+      "mezimori",
+      "cult",
+      "vernicia"
+    ]
+  },
+  {
+    "title": "Plura72’s second term in congress: AMIR UBER EATS Act",
+    "file": "posts/article-20250916-plura72s-second-term-in-congress-amir-uber-eats-act.html",
+    "author": "GlobalCenter Journalists Network",
+    "date": "2025-09-16",
+    "category": "Politics",
+    "tags": [
+      "Plura",
+      "congress",
+      "amir Uber eats act"
+    ]
   }
 ]
