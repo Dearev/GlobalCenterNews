@@ -1,67 +1,54 @@
 [
   {
-    "title": "Welcome to globalCenter News",
+    "title": "Welcome to GlobalCenter News",
     "file": "posts/article1.html",
     "author": "Dearev | CEO",
     "date": "2025-07-31",
     "category": "Other",
-    "tags": [
-      "welcome",
-      "announcement",
-      "launch",
-      "intro"
-    ]
+    "tags": ["welcome", "announcement", "launch", "intro"]
   },
   {
-    "title": "Mezimori: Vernicia’s personal personality cult",
+    "title": "Mezimori: Vernicia’s Personal Personality Cult",
     "file": "posts/article2.html",
     "author": "GlobalCenter Journalists Network",
     "date": "2025-08-01",
     "category": "Economy",
-    "tags": [
-      "Economy",
-      "mezimori",
-      "cult",
-      "vernicia"
-    ]
+    "tags": ["economy", "mezimori", "cult", "vernicia"]
   },
   {
-    "title": "Plura72’s second term in congress: AMIR UBER EATS Act",
-    "file": "posts/article-20250916-plura72’s-second-term-in-congress:-amir-uber-eats-act.html",
+    "title": "Plura72’s Second Term in Congress: AMIR Uber Eats Act",
+    "file": "posts/article-20250916-plura72-second-term-in-congress-amir-uber-eats-act.html",
     "author": "GlobalCenter Journalists Network",
     "date": "2025-09-16",
     "category": "Politics",
-    "tags": [
-      "Plura",
-      "congress",
-      "amir Uber eats act"
-    ]
+    "tags": ["plura", "congress", "amir-uber-eats-act"]
   },
   {
-    "title": "A bigger Supreme Court -  A better Redmont!",
+    "title": "A Bigger Supreme Court – A Better Redmont!",
     "file": "posts/puffer1.html",
-    "author": "ThePufferOffical",
+    "author": "ThePufferOfficial",
     "date": "2025-09-28",
     "category": "Opinion",
     "tags": []
   },
   {
-  "title": "Why lowering the plot limit is a bad idea",
-  "file": "posts/article-20251214-why-lowering-the-plot-limit-is-a-bad-idea.html",
-  "author": "GlobalCenter Journalists Network (GCJN)",
-  "date": "2025-12-14",
-  "category": "Economy",
-  "tags": [
-    "plots",
-    "limit",
-    "house",
-    "economy",
-    "hoarding",
-    "senate",
-    "commercial",
-    "c-plots",
-    "land"
-  ]
-}
+    "title": "Why Lowering the Plot Limit Is a Bad Idea",
+    "file": "posts/article-20251214-why-lowering-the-plot-limit-is-a-bad-idea.html",
+    "author": "GlobalCenter Journalists Network",
+    "date": "2025-12-14",
+    "category": "Economy",
+    "tags": [
+      "plots",
+      "limit",
+      "housing",
+      "economy",
+      "hoarding",
+      "senate",
+      "commercial",
+      "c-plots",
+      "land"
+    ]
+  }
 ]
+
 
